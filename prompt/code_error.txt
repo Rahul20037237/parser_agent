@@ -34,7 +34,8 @@ for i in range(5):
 ### Now check and fix this code:
 
 ### Input:
-{python_code_str}
+{code}
+{error}
 
 ### Instructions:
 1. Analyze the code using Python’s syntax rules (`compile()` internally).  

@@ -1,8 +1,8 @@
 You are an expert Python Regex and Pandas developer.  
-Your task is to analyze a text wrapped in <lines i> ... </lines i> tags and generate a Python script that extracts it into a CSV file.
+Your task is to analyze a file_path.pdf/n  and generate a Python script that extracts it into a CSV file.
 
 ### Input:
-{text_with_tags}
+{text}
 Save_path: {Save_path}
 Filename: {filename}
 
@@ -13,7 +13,7 @@ Filename: {filename}
 
 2. Assume the **first line contains headers**.  
    - Headers may be separated by irregular spaces or tabs.  
-   - Normalize them using `re.split(r"\s{2,}|\t+", line)`.  
+   - Normalize them using `re.split(r"\s\pattern\|\t+", line)`.  
    - Use these as column names for the DataFrame.
 
 3. For all subsequent lines (transaction rows):  
@@ -36,35 +36,61 @@ Filename: {filename}
 
 5. **Do not hardcode column names**; always use the first line.  
 6. Handle irregular spacing/tabs gracefully.  
-7. Only return the **Python script**, without any explanations, comments, or extra text.
+7. Only return the **Python script**, without any explanations, comments, or extra text. and no need of /`/`/`python
 
 ### Few-Shot Example
 
-Input:
-<lines 1>Date        Description        Debit      Credit      Balance</lines 1>
-<lines 2>01/04/2023  POS AMAZON         500.00     0.00        1500.00</lines 2>
-<lines 3>02/04/2023  CASH DEPOSIT       0.00       2000.00     3500.00</lines 3>
+Input:file_path like C:\Users\user\Documents\statement.pdf
 Save_path: C:\Users\user\Documents
 Filename: statement1
 
 Output Python script:
-```python
+
 import re
 import pandas as pd
 from pathlib import Path
 
-text = Date   Description        Debit      Credit      Balance
-01/04/2023  POS AMAZON         500.00     0.00        1500.00
-02/04/2023  CASH DEPOSIT       0.00       2000.00     3500.00
+class BankStatementParser:
+    def __init__(self, file_path: str):
+        """
+        Initialize the parser with a file path containing the bank statement text.
+        """
+        path = Path(file_path)
+        if not path.is_file():
+            raise FileNotFoundError(f"File not found: file_path")
+        self.text = path.read_text(encoding="utf-8")
+        self.headers = []
+        self.rows = []
 
-lines = text.strip().split("\n")
-headers = re.split(r"\s{2,}|\t+", lines[0])
-rows = [re.split(r"\s{2,}|\t+", line) for line in lines[1:]]
-df = pd.DataFrame(rows, columns=headers)
+    def parse_text(self) -> pd.DataFrame:
+        """Parse text into headers and rows"""
+        lines = self.text.strip().split("\n")
+        if not lines:
+            raise ValueError("Input text is empty")
+        
+        # Extract headers (first line) and normalize spaces/tabs
+        self.headers = re.split(r"\s pattern|\t+", lines[0].strip())
+        
+        # Extract rows
+        self.rows = [re.split(r"\s pattern |\t+", line.strip()) for line in lines[1:]]
+        
+        # Fill missing values with empty string
+        self.rows = [[col if col else "" for col in row] for row in self.rows]
+        
+        return pd.DataFrame(self.rows, columns=self.headers)
 
-save_path = Path(r"C:\Users\user\Documents")
-save_path.mkdir(parents=True, exist_ok=True)
-df.to_csv(save_path / "statement1.csv", index=False)
+    def save_to_csv(self, save_path: str, filename: str) -> pd.DataFrame:
+        """Save parsed DataFrame to CSV"""
+        df = self.parse_text()
+        path = Path(save_path)
+        path.mkdir(parents=True, exist_ok=True)
+        df.to_csv(path / f"{filename}.csv", index=False)
+        return df
+
+# --- Usage Example ---
+parser = BankStatementParser(r"C:\Users\user\Documents\statement.pdf")
+df = parser.save_to_csv(r"C:\Users\user\Documents", "statement1")
+print(df)
 
 ✅ **Key Improvements**
 
@@ -74,3 +100,4 @@ df.to_csv(save_path / "statement1.csv", index=False)
 4. **Safe CSV saving** with automatic folder creation.  
 5. **Few-shot example** teaches the model the exact output style.  
 6. **Strict “only return script” rule** ensures clean output. 
+7. **file_path will be a you generated_file

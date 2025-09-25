@@ -16,8 +16,9 @@ from langchain_community.document_loaders import PyPDFLoader, CSVLoader , Python
 
 
 
-class Prompt(BaseModel):
-    instruct: Optional[str] =None
+class Prompt:
+    instruct=""
+    tags={}
 
 
 class Code_exe(BaseModel):
@@ -47,7 +48,7 @@ class Parser_agent:
               if files.suffix.lower() == ".pdf":
                   Loader = PyPDFLoader(str(files))
                   docs = Loader.load()
-                  text = "".join([f"<line {i}>{doc.page_content}</line {i}>" for i, doc in enumerate(docs)])
+                  text = "\n".join([doc.page_content for i, doc in enumerate(docs)])
                   yield text
               else:
                   Loader = CSVLoader(str(files))
@@ -69,16 +70,16 @@ class Parser_agent:
             Code_exe.file_path=file_path
             Code_exe.Code=code
             Code_exe.output=result.stdout
-            Code_exe.error=result.stderr
+            
             print(result.stderr)
             return False if result.stderr else True
         except Exception as e:
-            print(e)
+            Code_exe.error=result.stderr
             return False
     
     
     def write_code(self,**kwargs):
-        prompt=Prompt.intruct.format(**kwargs)
+        prompt=Prompt.instruct.format(**kwargs)
         answer=self.llm.invoke(prompt)
         return answer.content
     

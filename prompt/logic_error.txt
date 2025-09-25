@@ -47,7 +47,8 @@ def multiply(x, y):
 ### Now check and fix this code:
 
 ### Input:
-{python_code_str}
+{code}
+{error}
 
 ### Instructions:
 1. Analyze the code for **logic errors** (wrong calculations, conditions, loops, or return values).  
