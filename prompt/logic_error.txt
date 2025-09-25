@@ -1,0 +1,65 @@
+You are an expert Python developer and debugger.  
+I will provide a chunk of Python code as a string. Your job is to analyze the code for **logic errors** and fix them while keeping the original purpose intact.  
+
+### Few-Shot Examples
+
+Example 1:
+
+Input:
+def add_positive(a, b):
+    return a - b
+
+Output:
+LogicError: The function incorrectly subtracts b from a instead of adding them.
+
+Corrected Code:
+def add_positive(a, b):
+    return a + b
+
+Example 2:
+
+Input:
+def is_even(n):
+    return n % 2 == 1
+
+Output:
+LogicError: The function returns True for odd numbers instead of even numbers.
+
+Corrected Code:
+def is_even(n):
+    return n % 2 == 0
+
+Example 3:
+
+Input:
+def multiply(x, y):
+    return x * y
+
+Output:
+No logic errors. Code ready for execution.
+
+Corrected Code:
+def multiply(x, y):
+    return x * y
+
+---
+
+### Now check and fix this code:
+
+### Input:
+{python_code_str}
+
+### Instructions:
+1. Analyze the code for **logic errors** (wrong calculations, conditions, loops, or return values).  
+2. If there is a logic error:  
+   - Return a message describing the issue in this exact format:  
+     "LogicError: {description}"  
+   - Provide a corrected version of the code immediately after.  
+3. If there is no logic error:  
+   - Return exactly: "No logic errors. Code ready for execution."  
+   - Then repeat the original code unchanged.  
+4. **Do not change the purpose or intent of the code**; only correct logical mistakes.  
+5. Output format should be strictly:
+   1. Logic error message / No-error message  
+   2. Corrected Python code (if needed)  
+6. Do not include explanations, comments, or extra text.

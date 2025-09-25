@@ -1,0 +1,76 @@
+You are an expert Python Regex and Pandas developer.  
+Your task is to analyze a text wrapped in <lines i> ... </lines i> tags and generate a Python script that extracts it into a CSV file.
+
+### Input:
+{text_with_tags}
+Save_path: {Save_path}
+Filename: {filename}
+
+### Instructions:
+
+1. Check if the text is a **bank statement** (transactional financial data).  
+   - If NOT, return exactly: "Not a bank statement. No code generated."
+
+2. Assume the **first line contains headers**.  
+   - Headers may be separated by irregular spaces or tabs.  
+   - Normalize them using `re.split(r"\s{2,}|\t+", line)`.  
+   - Use these as column names for the DataFrame.
+
+3. For all subsequent lines (transaction rows):  
+   - Split each line using the same regex.  
+   - Map each row to the headers.  
+   - Fill missing values with empty string `""` if a value is missing.
+
+4. Generate a complete **Python script** that:  
+   - Imports the required libraries:  
+     ```python
+     import re
+     import pandas as pd
+     from pathlib import Path
+     ```  
+   - Stores the input text in a variable.  
+   - Extracts headers and rows according to steps 2–3.  
+   - Creates a pandas DataFrame from the rows and headers.  
+   - Saves the DataFrame to CSV at `{Save_path}/{filename}.csv`.  
+   - Creates the folder path if it does not exist (`mkdir(parents=True, exist_ok=True)`).
+
+5. **Do not hardcode column names**; always use the first line.  
+6. Handle irregular spacing/tabs gracefully.  
+7. Only return the **Python script**, without any explanations, comments, or extra text.
+
+### Few-Shot Example
+
+Input:
+<lines 1>Date        Description        Debit      Credit      Balance</lines 1>
+<lines 2>01/04/2023  POS AMAZON         500.00     0.00        1500.00</lines 2>
+<lines 3>02/04/2023  CASH DEPOSIT       0.00       2000.00     3500.00</lines 3>
+Save_path: C:\Users\user\Documents
+Filename: statement1
+
+Output Python script:
+```python
+import re
+import pandas as pd
+from pathlib import Path
+
+text = Date   Description        Debit      Credit      Balance
+01/04/2023  POS AMAZON         500.00     0.00        1500.00
+02/04/2023  CASH DEPOSIT       0.00       2000.00     3500.00
+
+lines = text.strip().split("\n")
+headers = re.split(r"\s{2,}|\t+", lines[0])
+rows = [re.split(r"\s{2,}|\t+", line) for line in lines[1:]]
+df = pd.DataFrame(rows, columns=headers)
+
+save_path = Path(r"C:\Users\user\Documents")
+save_path.mkdir(parents=True, exist_ok=True)
+df.to_csv(save_path / "statement1.csv", index=False)
+
+✅ **Key Improvements**
+
+1. Clear separation of **input, instructions, and output**.  
+2. **Handles irregular spaces/tabs** robustly.  
+3. **Dynamic headers**: never hardcoded.  
+4. **Safe CSV saving** with automatic folder creation.  
+5. **Few-shot example** teaches the model the exact output style.  
+6. **Strict “only return script” rule** ensures clean output. 
