@@ -1,0 +1,696 @@
+2025-09-26 15:39:49,835 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 15:39:49,837 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 15:39:50,597 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.76s)
+2025-09-26 15:39:50,597 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 15:39:50,604 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:39:50,609 - logger - INFO - 📊 Current tries: 0
+2025-09-26 15:39:50,609 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 15:39:50,625 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 15:39:50,634 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 15:39:50,636 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 15:39:52,460 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 15:39:52,484 - logger - INFO - ✅ COMPLETED: Generate_code (took 1.85s)
+2025-09-26 15:39:52,484 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 15:39:52,484 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 15:39:52,484 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 15:39:52,618 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.13s)
+2025-09-26 15:39:52,618 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 15:39:52,622 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:39:52,622 - logger - INFO - 📊 Current tries: 1
+2025-09-26 15:39:52,622 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 15:39:52,623 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 15:39:52,629 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 15:39:52,629 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Tries: 2
+2025-09-26 15:39:53,195 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 15:39:53,200 - logger - INFO - ✅ COMPLETED: Generate_code (took 0.57s)
+2025-09-26 15:39:53,200 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code'], Next: Generate_code
+2025-09-26 15:39:53,200 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 15:39:53,200 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code'], Tries: 2
+2025-09-26 15:39:54,297 - logger - INFO - ✅ COMPLETED: Evaluator (took 1.09s)
+2025-09-26 15:39:54,297 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 15:39:54,313 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:39:54,314 - logger - INFO - 📊 Current tries: 2
+2025-09-26 15:39:54,314 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 15:39:54,315 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 15:39:54,320 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 15:39:54,320 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed'], Tries: 3
+2025-09-26 15:39:54,376 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 15:39:54,376 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 8.000000 seconds
+2025-09-26 15:40:03,020 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 15:40:03,031 - logger - INFO - ✅ COMPLETED: Generate_code (took 8.71s)
+2025-09-26 15:40:03,031 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code'], Next: Generate_code
+2025-09-26 15:40:03,034 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 15:40:03,037 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code'], Tries: 3
+2025-09-26 15:40:04,787 - logger - INFO - ✅ COMPLETED: Evaluator (took 1.75s)
+2025-09-26 15:40:04,787 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 15:40:04,797 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:40:04,799 - logger - INFO - 📊 Current tries: 3
+2025-09-26 15:40:04,799 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 15:40:04,799 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 15:40:04,804 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 15:40:04,804 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed'], Tries: 4
+2025-09-26 15:40:04,864 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 15:40:04,864 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 15.000000 seconds
+2025-09-26 15:40:20,505 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 15:40:20,521 - logger - INFO - ✅ COMPLETED: Generate_code (took 15.72s)
+2025-09-26 15:40:20,521 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code'], Next: Generate_code
+2025-09-26 15:40:20,529 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 15:40:20,529 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code'], Tries: 4
+2025-09-26 15:40:21,693 - logger - INFO - ✅ COMPLETED: Evaluator (took 1.16s)
+2025-09-26 15:40:21,693 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 15:40:21,700 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:40:21,700 - logger - INFO - 📊 Current tries: 4
+2025-09-26 15:40:21,700 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 15:40:21,700 - logger - INFO - 🎯 DECISION: Next step will be 'END'
+2025-09-26 15:45:55,134 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 15:45:55,134 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 15:45:55,523 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.39s)
+2025-09-26 15:45:55,525 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 15:45:55,526 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:45:55,526 - logger - INFO - 📊 Current tries: 0
+2025-09-26 15:45:55,526 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 15:45:55,526 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 15:45:55,540 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 15:45:55,540 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 15:45:56,516 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 15:45:56,600 - logger - INFO - ✅ COMPLETED: Generate_code (took 1.06s)
+2025-09-26 15:45:56,600 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 15:45:56,603 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 15:45:56,603 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 15:45:56,715 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.11s)
+2025-09-26 15:45:56,715 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 15:45:56,715 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 15:45:56,715 - logger - INFO - 📊 Current tries: 1
+2025-09-26 15:45:56,715 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 15:45:56,903 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 15:45:56,908 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 15:45:56,913 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Tries: 2
+2025-09-26 15:45:56,913 - logger - ERROR - ❌ ERROR in generate_test_cases (after 0.00s): [Errno 13] Permission denied: 'C:\\Users\\rohith\\Downloads\\ai-agent-challenge-main\\ai-agent-challenge-main\\data\\icici'
+2025-09-26 15:45:56,915 - logger - ERROR - 📋 Error details: PermissionError: [Errno 13] Permission denied: 'C:\\Users\\rohith\\Downloads\\ai-agent-challenge-main\\ai-agent-challenge-main\\data\\icici'2025-09-26 16:02:25,626 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 16:02:25,628 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 16:02:27,378 - logger - INFO - ✅ COMPLETED: preprocessing (took 1.75s)
+2025-09-26 16:02:27,378 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 16:02:27,384 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:02:27,384 - logger - INFO - 📊 Current tries: 0
+2025-09-26 16:02:27,388 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 16:02:27,429 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 16:02:27,442 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 16:02:27,442 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 16:02:28,420 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 16:02:28,522 - logger - INFO - ✅ COMPLETED: Generate_code (took 1.08s)
+2025-09-26 16:02:28,522 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 16:02:28,530 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 16:02:28,531 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 16:02:28,700 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.17s)
+2025-09-26 16:02:28,700 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 16:02:28,705 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:02:28,705 - logger - INFO - 📊 Current tries: 1
+2025-09-26 16:02:28,709 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 16:02:28,745 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 16:02:28,754 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 16:02:28,754 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Tries: 2
+2025-09-26 16:02:28,754 - logger - ERROR - ❌ ERROR in generate_test_cases (after 0.00s): [Errno 13] Permission denied: 'C:\\Users\\rohith\\Downloads\\ai-agent-challenge-main\\ai-agent-challenge-main\\data\\icici'
+2025-09-26 16:02:28,754 - logger - ERROR - 📋 Error details: PermissionError: [Errno 13] Permission denied: 'C:\\Users\\rohith\\Downloads\\ai-agent-challenge-main\\ai-agent-challenge-main\\data\\icici'
+2025-09-26 16:04:54,574 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 16:04:54,574 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 16:04:54,919 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.35s)
+2025-09-26 16:04:54,919 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 16:04:54,919 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:04:54,919 - logger - INFO - 📊 Current tries: 0
+2025-09-26 16:04:54,919 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 16:04:54,929 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 16:04:54,937 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 16:04:54,937 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 16:04:55,942 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 16:04:55,987 - logger - INFO - ✅ COMPLETED: Generate_code (took 1.05s)
+2025-09-26 16:04:55,987 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 16:04:55,993 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 16:04:55,993 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 16:04:56,141 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.15s)
+2025-09-26 16:04:56,143 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Next: Planner
+2025-09-26 16:04:56,145 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:04:56,145 - logger - INFO - 📊 Current tries: 1
+2025-09-26 16:04:56,145 - logger - INFO - 🎯 Previous next_step: Planner
+2025-09-26 16:04:56,149 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 16:04:56,153 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 16:04:56,154 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'planner'], Status: ['generator', 'Write_code', 'Evaluation_passed'], Tries: 2
+2025-09-26 16:04:56,154 - logger - ERROR - ❌ ERROR in generate_test_cases (after 0.00s): [Errno 13] Permission denied: 'C:\\Users\\rohith\\Downloads\\ai-agent-challenge-main\\ai-agent-challenge-main\\data\\icici'
+2025-09-26 16:04:56,154 - logger - ERROR - 📋 Error details: PermissionError: [Errno 13] Permission denied: 'C:\\Users\\rohith\\Downloads\\ai-agent-challenge-main\\ai-agent-challenge-main\\data\\icici'
+2025-09-26 16:47:12,392 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 16:47:12,392 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 16:47:12,801 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.41s)
+2025-09-26 16:47:12,801 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 16:47:12,822 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:47:12,822 - logger - INFO - 📊 Current tries: 0
+2025-09-26 16:47:12,823 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 16:48:05,077 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 16:48:05,077 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 16:48:05,386 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.31s)
+2025-09-26 16:48:05,386 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 16:48:05,386 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:48:05,402 - logger - INFO - 📊 Current tries: 0
+2025-09-26 16:48:05,402 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 16:50:26,355 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 16:50:26,355 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 16:50:26,702 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.35s)
+2025-09-26 16:50:26,702 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 16:50:26,702 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:50:26,718 - logger - INFO - 📊 Current tries: 0
+2025-09-26 16:50:26,718 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 16:50:26,722 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 16:50:26,731 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 16:50:26,732 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 16:50:27,622 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 16:50:27,655 - logger - INFO - ✅ COMPLETED: Generate_code (took 0.92s)
+2025-09-26 16:50:27,656 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 16:50:27,658 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 16:50:27,659 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 16:50:27,763 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.10s)
+2025-09-26 16:50:27,763 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 16:50:27,763 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 16:50:27,763 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 16:50:27,763 - logger - ERROR - ❌ ERROR in code_check (after 0.00s): 'str' object has no attribute 'error'
+2025-09-26 16:50:27,763 - logger - ERROR - 📋 Error details: AttributeError: 'str' object has no attribute 'error'
+2025-09-26 16:51:53,756 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 16:51:53,756 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 16:51:54,056 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.30s)
+2025-09-26 16:51:54,056 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 16:51:54,056 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 16:51:54,056 - logger - INFO - 📊 Current tries: 0
+2025-09-26 16:51:54,056 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 16:51:54,072 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 16:51:54,078 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 16:51:54,079 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 16:51:54,999 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 16:51:55,030 - logger - INFO - ✅ COMPLETED: Generate_code (took 0.95s)
+2025-09-26 16:51:55,030 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 16:51:55,036 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 16:51:55,036 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 16:51:55,137 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.10s)
+2025-09-26 16:51:55,137 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 16:51:55,137 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 16:51:55,137 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 16:51:55,137 - logger - ERROR - ❌ ERROR in code_check (after 0.00s): 'text'
+2025-09-26 16:51:55,147 - logger - ERROR - 📋 Error details: KeyError: 'text'
+2025-09-26 18:04:10,406 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 18:04:10,406 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 18:04:10,918 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.51s)
+2025-09-26 18:04:10,918 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 18:04:10,929 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 18:04:10,929 - logger - INFO - 📊 Current tries: 0
+2025-09-26 18:04:10,931 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 18:04:11,012 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 18:04:11,022 - logger - INFO - 🚀 STARTING: Generate_code
+2025-09-26 18:04:11,022 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 18:04:11,919 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 18:04:12,035 - logger - INFO - ✅ COMPLETED: Generate_code (took 1.01s)
+2025-09-26 18:04:12,035 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 18:04:12,039 - logger - INFO - 🚀 STARTING: Evaluator
+2025-09-26 18:04:12,039 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 18:04:12,147 - logger - INFO - ✅ COMPLETED: Evaluator (took 0.11s)
+2025-09-26 18:04:12,147 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 18:04:12,155 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 18:04:12,155 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 18:04:12,155 - logger - ERROR - ❌ ERROR in code_check (after 0.00s): 'text'
+2025-09-26 18:04:12,155 - logger - ERROR - 📋 Error details: KeyError: 'text'
+2025-09-26 19:06:04,659 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 19:06:04,659 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 19:06:05,476 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.82s)
+2025-09-26 19:06:05,478 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 19:06:05,494 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:06:05,495 - logger - INFO - 📊 Current tries: 0
+2025-09-26 19:06:05,495 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 19:06:05,497 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 19:06:05,509 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 19:06:05,509 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 19:06:06,426 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:06:06,454 - logger - INFO - ✅ COMPLETED: generate_code (took 0.94s)
+2025-09-26 19:06:06,455 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 19:06:06,459 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 19:06:06,460 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 19:06:06,618 - logger - INFO - ✅ COMPLETED: evaluator (took 0.16s)
+2025-09-26 19:06:06,618 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 19:06:06,635 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 19:06:06,636 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 19:06:06,641 - logger - ERROR - ❌ ERROR in code_check (after 0.01s): 'line_number'
+2025-09-26 19:06:06,643 - logger - ERROR - 📋 Error details: KeyError: 'line_number'
+2025-09-26 19:12:56,802 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 19:12:56,802 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 19:12:57,265 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.46s)
+2025-09-26 19:12:57,266 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 19:12:57,267 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:12:57,267 - logger - INFO - 📊 Current tries: 0
+2025-09-26 19:12:57,267 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 19:12:57,267 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 19:12:57,286 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 19:12:57,286 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 19:12:58,102 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:12:58,132 - logger - INFO - ✅ COMPLETED: generate_code (took 0.85s)
+2025-09-26 19:12:58,136 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 19:12:58,137 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 19:12:58,137 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 19:12:58,248 - logger - INFO - ✅ COMPLETED: evaluator (took 0.11s)
+2025-09-26 19:12:58,248 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 19:12:58,248 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 19:12:58,248 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 19:12:58,257 - logger - ERROR - ❌ ERROR in code_check (after 0.01s): 'line_number'
+2025-09-26 19:12:58,257 - logger - ERROR - 📋 Error details: KeyError: 'line_number'
+2025-09-26 19:13:39,956 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 19:13:39,956 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 19:13:40,273 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.32s)
+2025-09-26 19:13:40,273 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 19:13:40,289 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:13:40,289 - logger - INFO - 📊 Current tries: 0
+2025-09-26 19:13:40,289 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 19:13:40,289 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 19:13:40,303 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 19:13:40,304 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 19:13:41,265 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:13:41,288 - logger - INFO - ✅ COMPLETED: generate_code (took 0.98s)
+2025-09-26 19:13:41,288 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 19:13:41,290 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 19:13:41,290 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 19:13:41,399 - logger - INFO - ✅ COMPLETED: evaluator (took 0.11s)
+2025-09-26 19:13:41,399 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 19:13:41,405 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 19:13:41,405 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 19:13:42,027 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:13:42,034 - logger - INFO - ✅ COMPLETED: code_check (took 0.63s)
+2025-09-26 19:13:42,034 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 19:13:42,040 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:13:42,040 - logger - INFO - 📊 Current tries: 1
+2025-09-26 19:13:42,041 - logger - INFO - 🎯 Previous next_step: Code_check
+2025-09-26 19:13:42,046 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 19:13:42,053 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 19:13:42,060 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 19:13:42,063 - logger - ERROR - ❌ ERROR in generate_test_cases (after 0.00s): 'list' object has no attribute 'page_content'
+2025-09-26 19:13:42,064 - logger - ERROR - 📋 Error details: AttributeError: 'list' object has no attribute 'page_content'
+2025-09-26 19:16:03,422 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 19:16:03,424 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 19:16:03,726 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.30s)
+2025-09-26 19:16:03,727 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 19:16:03,729 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:16:03,729 - logger - INFO - 📊 Current tries: 0
+2025-09-26 19:16:03,729 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 19:16:03,729 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 19:16:03,744 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 19:16:03,744 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 19:16:04,578 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:16:04,594 - logger - INFO - ✅ COMPLETED: generate_code (took 0.85s)
+2025-09-26 19:16:04,594 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 19:16:04,611 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 19:16:04,611 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 19:16:04,718 - logger - INFO - ✅ COMPLETED: evaluator (took 0.11s)
+2025-09-26 19:16:04,718 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 19:16:04,718 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 19:16:04,718 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 19:16:05,344 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:16:05,344 - logger - INFO - ✅ COMPLETED: code_check (took 0.61s)
+2025-09-26 19:16:05,344 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 19:16:05,354 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:16:05,355 - logger - INFO - 📊 Current tries: 1
+2025-09-26 19:16:05,355 - logger - INFO - 🎯 Previous next_step: Code_check
+2025-09-26 19:16:05,379 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 19:16:05,382 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 19:16:05,382 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 19:16:05,440 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 19:16:05,440 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 4.000000 seconds
+2025-09-26 19:16:10,022 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:16:10,034 - logger - INFO - ✅ COMPLETED: generate_test_cases (took 4.65s)
+2025-09-26 19:16:10,034 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner', 'Generate_test_cases'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed', 'Test_cases_generated'], Next: Generate_test_cases
+2025-09-26 19:19:00,335 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 19:19:00,335 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 19:19:00,635 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.30s)
+2025-09-26 19:19:00,635 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 19:19:00,646 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:19:00,646 - logger - INFO - 📊 Current tries: 0
+2025-09-26 19:19:00,646 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 19:19:00,666 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 19:19:00,673 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 19:19:00,673 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 19:19:01,518 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:19:01,538 - logger - INFO - ✅ COMPLETED: generate_code (took 0.87s)
+2025-09-26 19:19:01,538 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 19:19:01,538 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 19:19:01,538 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 19:19:02,666 - logger - INFO - ✅ COMPLETED: evaluator (took 1.12s)
+2025-09-26 19:19:02,666 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 19:19:02,679 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 19:19:02,680 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 19:19:03,805 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:19:03,818 - logger - INFO - ✅ COMPLETED: code_check (took 1.14s)
+2025-09-26 19:19:03,818 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 19:19:03,822 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:19:03,823 - logger - INFO - 📊 Current tries: 1
+2025-09-26 19:19:03,823 - logger - INFO - 🎯 Previous next_step: Code_check
+2025-09-26 19:19:03,825 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 19:19:03,829 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 19:19:03,830 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 19:19:03,882 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 19:19:03,882 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 7.000000 seconds
+2025-09-26 19:19:11,486 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:19:11,499 - logger - INFO - ✅ COMPLETED: generate_test_cases (took 7.67s)
+2025-09-26 19:19:11,500 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner', 'Generate_test_cases'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed', 'Test_cases_generated'], Next: Generate_test_cases
+2025-09-26 19:39:48,028 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 19:39:48,028 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 19:39:48,372 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.34s)
+2025-09-26 19:39:48,372 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 19:39:48,388 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:39:48,388 - logger - INFO - 📊 Current tries: 0
+2025-09-26 19:39:48,388 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 19:39:48,388 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 19:39:48,399 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 19:39:48,401 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 19:39:49,358 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:39:49,376 - logger - INFO - ✅ COMPLETED: generate_code (took 0.97s)
+2025-09-26 19:39:49,376 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 19:39:49,380 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 19:39:49,380 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 19:39:50,367 - logger - INFO - ✅ COMPLETED: evaluator (took 0.99s)
+2025-09-26 19:39:50,367 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 19:39:50,367 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 19:39:50,367 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 19:39:51,601 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:39:51,620 - logger - INFO - ✅ COMPLETED: code_check (took 1.25s)
+2025-09-26 19:39:51,621 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 19:39:51,625 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 19:39:51,625 - logger - INFO - 📊 Current tries: 1
+2025-09-26 19:39:51,625 - logger - INFO - 🎯 Previous next_step: Code_check
+2025-09-26 19:39:51,625 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 19:39:51,631 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 19:39:51,631 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 19:39:51,704 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 19:39:51,704 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 7.000000 seconds
+2025-09-26 19:39:59,313 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 19:39:59,319 - logger - INFO - ✅ COMPLETED: generate_test_cases (took 7.68s)
+2025-09-26 19:39:59,319 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner', 'Generate_test_cases'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed', 'Test_cases_generated'], Next: Generate_test_cases
+2025-09-26 20:49:27,830 - logger - INFO - 🚀 STARTING: preprocessing
+2025-09-26 20:49:27,830 - logger - INFO - 📥 INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 20:49:28,242 - logger - INFO - ✅ COMPLETED: preprocessing (took 0.41s)
+2025-09-26 20:49:28,242 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 20:49:28,256 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 20:49:28,257 - logger - INFO - 📊 Current tries: 0
+2025-09-26 20:49:28,258 - logger - INFO - 🎯 Previous next_step: None
+2025-09-26 20:49:28,259 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_code'
+2025-09-26 20:49:28,267 - logger - INFO - 🚀 STARTING: generate_code
+2025-09-26 20:49:28,268 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 20:49:29,181 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 20:49:29,262 - logger - INFO - ✅ COMPLETED: generate_code (took 0.99s)
+2025-09-26 20:49:29,398 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 20:49:29,398 - logger - INFO - 🚀 STARTING: evaluator
+2025-09-26 20:49:29,398 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 20:49:31,298 - logger - INFO - ✅ COMPLETED: evaluator (took 1.90s)
+2025-09-26 20:49:31,299 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 20:49:31,305 - logger - INFO - 🚀 STARTING: code_check
+2025-09-26 20:49:31,305 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 20:49:32,507 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 20:49:32,528 - logger - INFO - ✅ COMPLETED: code_check (took 1.22s)
+2025-09-26 20:49:32,528 - logger - INFO - 📤 OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 20:49:32,539 - logger - INFO - 🤔 DECISION POINT: planner
+2025-09-26 20:49:32,539 - logger - INFO - 📊 Current tries: 1
+2025-09-26 20:49:32,539 - logger - INFO - 🎯 Previous next_step: Code_check
+2025-09-26 20:49:32,539 - logger - INFO - 🎯 DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 20:49:32,539 - logger - INFO - 🚀 STARTING: generate_test_cases
+2025-09-26 20:49:32,539 - logger - INFO - 📥 INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 20:49:32,539 - logger - ERROR - ❌ ERROR in generate_test_cases (after 0.00s): Parser_agent.generated_the_textcases() missing 1 required positional argument: 'file_name'
+2025-09-26 20:49:32,539 - logger - ERROR - 📋 Error details: TypeError: Parser_agent.generated_the_textcases() missing 1 required positional argument: 'file_name'
+2025-09-26 20:59:02,281 - logger - INFO -  STARTING: preprocessing
+2025-09-26 20:59:02,281 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 20:59:02,616 - logger - INFO - COMPLETED: preprocessing (took 0.34s)
+2025-09-26 20:59:02,616 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 20:59:02,632 - logger - INFO - DECISION POINT: planner
+2025-09-26 20:59:02,632 - logger - INFO - Current tries: 0
+2025-09-26 20:59:02,632 - logger - INFO - Previous next_step: None
+2025-09-26 20:59:02,632 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 20:59:02,643 - logger - INFO -  STARTING: generate_code
+2025-09-26 20:59:02,643 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 20:59:03,458 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 20:59:03,505 - logger - INFO - COMPLETED: generate_code (took 0.86s)
+2025-09-26 20:59:03,505 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 20:59:03,508 - logger - INFO -  STARTING: evaluator
+2025-09-26 20:59:03,508 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 20:59:04,628 - logger - INFO - COMPLETED: evaluator (took 1.12s)
+2025-09-26 20:59:04,628 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 20:59:04,633 - logger - INFO -  STARTING: code_check
+2025-09-26 20:59:04,633 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 20:59:05,807 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 20:59:05,829 - logger - INFO - COMPLETED: code_check (took 1.20s)
+2025-09-26 20:59:05,830 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 20:59:05,834 - logger - INFO - DECISION POINT: planner
+2025-09-26 20:59:05,836 - logger - INFO - Current tries: 1
+2025-09-26 20:59:05,838 - logger - INFO - Previous next_step: Code_check
+2025-09-26 20:59:05,839 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 20:59:05,846 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 20:59:05,847 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 20:59:05,848 - logger - ERROR - ERROR in generate_test_cases (after 0.00s): Parser_agent.generated_the_textcases() missing 1 required positional argument: 'file_name'
+2025-09-26 20:59:05,849 - logger - ERROR - Error details: TypeError: Parser_agent.generated_the_textcases() missing 1 required positional argument: 'file_name'
+2025-09-26 20:59:46,242 - logger - INFO -  STARTING: preprocessing
+2025-09-26 20:59:46,244 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 20:59:46,585 - logger - INFO - COMPLETED: preprocessing (took 0.34s)
+2025-09-26 20:59:46,585 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 20:59:46,587 - logger - INFO - DECISION POINT: planner
+2025-09-26 20:59:46,587 - logger - INFO - Current tries: 0
+2025-09-26 20:59:46,587 - logger - INFO - Previous next_step: None
+2025-09-26 20:59:46,587 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 20:59:46,605 - logger - INFO -  STARTING: generate_code
+2025-09-26 20:59:46,605 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 20:59:47,421 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 20:59:47,441 - logger - INFO - COMPLETED: generate_code (took 0.84s)
+2025-09-26 20:59:47,441 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 20:59:47,441 - logger - INFO -  STARTING: evaluator
+2025-09-26 20:59:47,441 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 20:59:48,883 - logger - INFO - COMPLETED: evaluator (took 1.44s)
+2025-09-26 20:59:48,883 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 20:59:48,904 - logger - INFO -  STARTING: code_check
+2025-09-26 20:59:48,905 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 20:59:48,961 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 20:59:48,961 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2025-09-26 20:59:56,167 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 20:59:56,167 - logger - INFO - COMPLETED: code_check (took 7.26s)
+2025-09-26 20:59:56,167 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 20:59:56,167 - logger - INFO - DECISION POINT: planner
+2025-09-26 20:59:56,167 - logger - INFO - Current tries: 1
+2025-09-26 20:59:56,167 - logger - INFO - Previous next_step: Code_check
+2025-09-26 20:59:56,167 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 20:59:56,179 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 20:59:56,179 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 20:59:56,232 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 20:59:56,238 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 17.000000 seconds
+2025-09-26 21:00:13,995 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:00:13,995 - logger - ERROR - ERROR in generate_test_cases (after 17.81s): Parser_agent.code_executor_and_checker() got an unexpected keyword argument 'DIR_PATH'
+2025-09-26 21:00:13,995 - logger - ERROR - Error details: TypeError: Parser_agent.code_executor_and_checker() got an unexpected keyword argument 'DIR_PATH'
+2025-09-26 21:01:21,291 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:01:21,291 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:01:21,632 - logger - INFO - COMPLETED: preprocessing (took 0.34s)
+2025-09-26 21:01:21,632 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:01:21,651 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:01:21,653 - logger - INFO - Current tries: 0
+2025-09-26 21:01:21,654 - logger - INFO - Previous next_step: None
+2025-09-26 21:01:21,655 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:01:21,664 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:01:21,664 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:01:22,492 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:01:22,606 - logger - INFO - COMPLETED: generate_code (took 0.94s)
+2025-09-26 21:01:22,606 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:01:22,608 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:01:22,613 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:01:23,663 - logger - INFO - COMPLETED: evaluator (took 1.05s)
+2025-09-26 21:01:23,663 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 21:01:23,685 - logger - INFO -  STARTING: code_check
+2025-09-26 21:01:23,686 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 21:01:24,837 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:01:24,858 - logger - INFO - COMPLETED: code_check (took 1.17s)
+2025-09-26 21:01:24,859 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 21:01:24,865 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:01:24,865 - logger - INFO - Current tries: 1
+2025-09-26 21:01:24,866 - logger - INFO - Previous next_step: Code_check
+2025-09-26 21:01:24,867 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 21:01:24,872 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 21:01:24,873 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 21:01:24,945 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:01:24,945 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 7.000000 seconds
+2025-09-26 21:01:32,598 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:01:32,598 - logger - ERROR - ERROR in generate_test_cases (after 7.72s): cannot access local variable 'result' where it is not associated with a value
+2025-09-26 21:01:32,598 - logger - ERROR - Error details: UnboundLocalError: cannot access local variable 'result' where it is not associated with a value
+2025-09-26 21:02:27,830 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:02:27,830 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:02:28,255 - logger - INFO - COMPLETED: preprocessing (took 0.42s)
+2025-09-26 21:02:28,256 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:02:28,269 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:02:28,269 - logger - INFO - Current tries: 0
+2025-09-26 21:02:28,270 - logger - INFO - Previous next_step: None
+2025-09-26 21:02:28,272 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:02:28,280 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:02:28,281 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:02:29,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:02:29,240 - logger - INFO - COMPLETED: generate_code (took 0.96s)
+2025-09-26 21:02:29,241 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:02:29,246 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:02:29,246 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:02:31,062 - logger - INFO - COMPLETED: evaluator (took 1.82s)
+2025-09-26 21:02:31,062 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 21:02:31,068 - logger - INFO -  STARTING: code_check
+2025-09-26 21:02:31,068 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 21:02:32,212 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:02:32,221 - logger - INFO - COMPLETED: code_check (took 1.15s)
+2025-09-26 21:02:32,221 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 21:02:32,226 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:02:32,226 - logger - INFO - Current tries: 1
+2025-09-26 21:02:32,227 - logger - INFO - Previous next_step: Code_check
+2025-09-26 21:02:32,228 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 21:02:32,232 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 21:02:32,232 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 21:02:32,292 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:02:32,292 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 12.000000 seconds
+2025-09-26 21:02:44,938 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:02:44,945 - logger - ERROR - ERROR in generate_test_cases (after 12.71s): cannot access local variable 'result' where it is not associated with a value
+2025-09-26 21:02:44,945 - logger - ERROR - Error details: UnboundLocalError: cannot access local variable 'result' where it is not associated with a value
+2025-09-26 21:04:16,264 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:04:16,264 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:04:16,735 - logger - INFO - COMPLETED: preprocessing (took 0.47s)
+2025-09-26 21:04:16,735 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:04:16,753 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:04:16,755 - logger - INFO - Current tries: 0
+2025-09-26 21:04:16,755 - logger - INFO - Previous next_step: None
+2025-09-26 21:04:16,757 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:04:16,765 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:04:16,765 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:04:17,822 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:04:17,843 - logger - INFO - COMPLETED: generate_code (took 1.08s)
+2025-09-26 21:04:17,843 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:04:17,850 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:04:17,850 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:04:18,892 - logger - INFO - COMPLETED: evaluator (took 1.04s)
+2025-09-26 21:04:18,892 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 21:04:18,908 - logger - INFO -  STARTING: code_check
+2025-09-26 21:04:18,908 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 21:04:20,147 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:04:20,168 - logger - INFO - COMPLETED: code_check (took 1.26s)
+2025-09-26 21:04:20,169 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 21:04:20,172 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:04:20,172 - logger - INFO - Current tries: 1
+2025-09-26 21:04:20,173 - logger - INFO - Previous next_step: Code_check
+2025-09-26 21:04:20,174 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 21:04:20,178 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 21:04:20,179 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 21:04:20,235 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:04:20,235 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2025-09-26 21:04:26,843 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:04:26,843 - logger - ERROR - ERROR in generate_test_cases (after 6.66s): cannot access local variable 'file_path' where it is not associated with a value
+2025-09-26 21:04:26,843 - logger - ERROR - Error details: UnboundLocalError: cannot access local variable 'file_path' where it is not associated with a value
+2025-09-26 21:05:00,684 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:05:00,684 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:05:01,062 - logger - INFO - COMPLETED: preprocessing (took 0.38s)
+2025-09-26 21:05:01,062 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:05:01,083 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:05:01,084 - logger - INFO - Current tries: 0
+2025-09-26 21:05:01,084 - logger - INFO - Previous next_step: None
+2025-09-26 21:05:01,086 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:05:01,091 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:05:01,091 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:05:01,892 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:05:01,968 - logger - INFO - COMPLETED: generate_code (took 0.88s)
+2025-09-26 21:05:01,968 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:05:01,968 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:05:01,968 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:05:03,130 - logger - INFO - COMPLETED: evaluator (took 1.16s)
+2025-09-26 21:05:03,130 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 21:05:03,143 - logger - INFO -  STARTING: code_check
+2025-09-26 21:05:03,143 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 21:05:03,208 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:05:03,208 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 18.000000 seconds
+2025-09-26 21:05:22,524 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:05:22,524 - logger - INFO - COMPLETED: code_check (took 19.38s)
+2025-09-26 21:05:22,524 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 21:05:22,533 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:05:22,534 - logger - INFO - Current tries: 1
+2025-09-26 21:05:22,535 - logger - INFO - Previous next_step: Code_check
+2025-09-26 21:05:22,536 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 21:05:22,541 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 21:05:22,542 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 21:05:22,600 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:05:22,600 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 17.000000 seconds
+2025-09-26 21:05:40,283 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:05:40,283 - logger - INFO - COMPLETED: generate_test_cases (took 17.74s)
+2025-09-26 21:05:40,283 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner', 'Generate_test_cases'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed', 'Test_cases_generated'], Next: Generate_test_cases
+2025-09-26 21:15:56,680 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:15:56,680 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:15:57,018 - logger - INFO - COMPLETED: preprocessing (took 0.34s)
+2025-09-26 21:15:57,018 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:15:57,038 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:15:57,039 - logger - INFO - Current tries: 0
+2025-09-26 21:15:57,039 - logger - INFO - Previous next_step: None
+2025-09-26 21:15:57,039 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:15:57,049 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:15:57,050 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:15:57,955 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:15:57,991 - logger - INFO - COMPLETED: generate_code (took 0.94s)
+2025-09-26 21:15:57,992 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:15:57,999 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:15:58,000 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:15:59,386 - logger - INFO - COMPLETED: evaluator (took 1.39s)
+2025-09-26 21:15:59,386 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 21:15:59,386 - logger - INFO -  STARTING: code_check
+2025-09-26 21:15:59,386 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 21:16:00,522 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:16:00,532 - logger - INFO - COMPLETED: code_check (took 1.15s)
+2025-09-26 21:16:00,532 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 21:16:00,539 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:16:00,539 - logger - INFO - Current tries: 1
+2025-09-26 21:16:00,540 - logger - INFO - Previous next_step: Code_check
+2025-09-26 21:16:00,541 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 21:16:00,545 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 21:16:00,546 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 21:16:00,611 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:16:00,611 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 6.000000 seconds
+2025-09-26 21:16:07,197 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:16:07,197 - logger - INFO - COMPLETED: generate_test_cases (took 6.65s)
+2025-09-26 21:16:07,197 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner', 'Generate_test_cases'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed', 'Test_cases_generated'], Next: Generate_test_cases
+2025-09-26 21:22:50,207 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:22:50,207 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:22:50,518 - logger - INFO - COMPLETED: preprocessing (took 0.31s)
+2025-09-26 21:22:50,518 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:22:50,534 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:22:50,534 - logger - INFO - Current tries: 0
+2025-09-26 21:22:50,534 - logger - INFO - Previous next_step: None
+2025-09-26 21:22:50,540 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:22:50,547 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:22:50,549 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:22:51,427 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:22:51,475 - logger - INFO - COMPLETED: generate_code (took 0.93s)
+2025-09-26 21:22:51,475 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:22:51,491 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:22:51,839 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:29:38,909 - logger - INFO -  STARTING: preprocessing
+2025-09-26 21:29:38,911 - logger - INFO -  INPUT STATE - Node: None, Status: None, Tries: 0
+2025-09-26 21:29:39,272 - logger - INFO - COMPLETED: preprocessing (took 0.36s)
+2025-09-26 21:29:39,272 - logger - INFO - OUTPUT STATE - Node: ['preprocessing'], Status: ['generator'], Next: None
+2025-09-26 21:29:39,272 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:29:39,272 - logger - INFO - Current tries: 0
+2025-09-26 21:29:39,272 - logger - INFO - Previous next_step: None
+2025-09-26 21:29:39,308 - logger - INFO - DECISION: Next step will be 'Generate_code'
+2025-09-26 21:29:39,315 - logger - INFO -  STARTING: generate_code
+2025-09-26 21:29:39,315 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner'], Status: ['generator'], Tries: 1
+2025-09-26 21:29:40,195 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:29:40,231 - logger - INFO - COMPLETED: generate_code (took 0.92s)
+2025-09-26 21:29:40,232 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Next: Generate_code
+2025-09-26 21:29:40,235 - logger - INFO -  STARTING: evaluator
+2025-09-26 21:29:40,235 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code'], Status: ['generator', 'Write_code'], Tries: 1
+2025-09-26 21:29:41,366 - logger - INFO - COMPLETED: evaluator (took 1.13s)
+2025-09-26 21:29:41,366 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Next: Code_check
+2025-09-26 21:29:41,366 - logger - INFO -  STARTING: code_check
+2025-09-26 21:29:41,366 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator'], Status: ['generator', 'Write_code', 'Code_execution_failed'], Tries: 1
+2025-09-26 21:29:42,095 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:29:42,100 - logger - INFO - COMPLETED: code_check (took 0.72s)
+2025-09-26 21:29:42,100 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Next: Code_check
+2025-09-26 21:29:42,109 - logger - INFO - DECISION POINT: planner
+2025-09-26 21:29:42,109 - logger - INFO - Current tries: 1
+2025-09-26 21:29:42,110 - logger - INFO - Previous next_step: Code_check
+2025-09-26 21:29:42,112 - logger - INFO - DECISION: Next step will be 'Generate_test_cases'
+2025-09-26 21:29:42,118 - logger - INFO -  STARTING: generate_test_cases
+2025-09-26 21:29:42,119 - logger - INFO -  INPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed'], Tries: 2
+2025-09-26 21:29:42,174 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-26 21:29:42,174 - groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 4.000000 seconds
+2025-09-26 21:29:46,824 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-26 21:29:46,824 - logger - INFO - COMPLETED: generate_test_cases (took 4.70s)
+2025-09-26 21:29:46,824 - logger - INFO - OUTPUT STATE - Node: ['preprocessing', 'planner', 'Generate_code', 'Evaluator', 'Code_check', 'planner', 'Generate_test_cases'], Status: ['generator', 'Write_code', 'Code_execution_failed', 'Code_fixed', 'Test_cases_generated'], Next: Generate_test_cases

@@ -88,8 +88,9 @@ class BankStatementParser:
         return df
 
 # --- Usage Example ---
-parser = BankStatementParser(r"C:\Users\user\Documents\statement.pdf")
-df = parser.save_to_csv(r"C:\Users\user\Documents", "statement1")
+path=input("Enter the path")
+parser = BankStatementParser(Path(input))
+df = parser.save_to_csv(r"D:\WORKSPACE\agents\custom_parser\data\icici", "statement1")
 print(df)
 
 ✅ **Key Improvements**
@@ -101,3 +102,4 @@ print(df)
 5. **Few-shot example** teaches the model the exact output style.  
 6. **Strict “only return script” rule** ensures clean output. 
 7. **file_path will be a you generated_file
+8. **In input don't include ```python``` string

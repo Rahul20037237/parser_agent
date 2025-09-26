@@ -1,16 +1,14 @@
 import sys
+import pandas as pd
 sys.path.append(r'D:\WORKSPACE\agents')
 try:
     from settings import settings
 except ImportError:
     from .settings import settings
-from os import error
 from pydantic import BaseModel
 from pathlib import Path
 import subprocess
 from typing import Annotated, List, Dict , Optional ,ClassVar
-import pandas as pd
-from multiprocessing import Pool
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import PyPDFLoader, CSVLoader , PythonLoader
 
@@ -66,16 +64,13 @@ class Parser_agent:
             file_path=dir_path / f"{file_name}.py"
             file_path.write_text(code)
             venv_python = Path(r"C:\Users\rohith\Envs\CRUD\Scripts\python.exe") 
-            result=subprocess.run([venv_python, str(file_path)], capture_output=True, text=True)
-            Code_exe.file_path=file_path
-            Code_exe.Code=code
-            Code_exe.output=result.stdout
+            sample_pdf=r"C:\Users\rohith\Downloads\ai-agent-challenge-main\ai-agent-challenge-main\data\icici\icici sample.pdf"
+            result=subprocess.run([venv_python, str(file_path)],input=sample_pdf, capture_output=True, text=True)
             
-            print(result.stderr)
-            return False if result.stderr else True
+            # print(result.stderr)
+            return (False,result,file_path) if result.stderr else (True,result,file_path)
         except Exception as e:
-            Code_exe.error=result.stderr
-            return False
+            print(e)
     
     
     def write_code(self,**kwargs):
@@ -118,8 +113,11 @@ class Parser_agent:
         answer=self.write_code(code=docs,error=Error.error)
         return answer
     
-    def generated_the_textcases(self,file_path: Path):
+    def generated_the_textcases(self,file_path: Path,file_name:str):
         python_file = PythonLoader(file_path)
         code=python_file.load()
-        answer=self.write_code(code=code.page_content)
+        answer=self.write_code(code=code)
+        result=self.code_executor_and_checker(code=answer,
+                                       dir_path=r'D:\WORKSPACE\agents\Testing\Gen_test',
+                                       file_name=file_name)
         return answer

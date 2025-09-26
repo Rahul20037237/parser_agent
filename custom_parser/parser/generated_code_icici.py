@@ -1,13 +1,9 @@
-```python
 import re
 import pandas as pd
 from pathlib import Path
 
 class BankStatementParser:
     def __init__(self, file_path: str):
-        """
-        Initialize the parser with a file path containing the bank statement text.
-        """
         path = Path(file_path)
         if not path.is_file():
             raise FileNotFoundError(f"File not found: {file_path}")
@@ -16,7 +12,6 @@ class BankStatementParser:
         self.rows = []
 
     def parse_text(self) -> pd.DataFrame:
-        """Parse text into headers and rows"""
         lines = self.text.strip().split("\n")
         if not lines:
             raise ValueError("Input text is empty")
@@ -37,7 +32,6 @@ class BankStatementParser:
         return pd.DataFrame(self.rows, columns=self.headers)
 
     def save_to_csv(self, save_path: str, filename: str) -> pd.DataFrame:
-        """Save parsed DataFrame to CSV"""
         df = self.parse_text()
         path = Path(save_path)
         path.mkdir(parents=True, exist_ok=True)
@@ -45,7 +39,7 @@ class BankStatementParser:
         return df
 
 # --- Usage Example ---
-parser = BankStatementParser(r"C:\Users\user\Documents\statement.pdf")
+file_path = input("Enter the file path: ")
+parser = BankStatementParser(file_path)
 df = parser.save_to_csv(r"D:\WORKSPACE\agents\custom_parser\parser", "icici_paraser")
 print(df)
-```

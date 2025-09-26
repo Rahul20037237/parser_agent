@@ -41,7 +41,7 @@ for i in range(5):
 1. Analyze the code using Python’s syntax rules (`compile()` internally).  
 2. If there is a syntax error:  
    - Return the error in this exact format:  
-     "SyntaxError at line {line_number}: {error_message}"  
+     "SyntaxError at line {code}: {error}"  
    - Provide a corrected version of the code immediately after.  
 3. If there is no syntax error:  
    - Return exactly: "No syntax errors. Code ready for execution."  

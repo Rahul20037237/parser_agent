@@ -40,7 +40,7 @@ def test_multiply_negative():
 ### Now generate pytest tests for this code:
 
 Code:
-{python_code_str}
+{code}
 
 ### Instructions:
 1. Identify all functions and classes in the code.  
