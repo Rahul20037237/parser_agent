@@ -280,15 +280,6 @@ DEFAULT_TEST_DATA = Path(r'your\custom\test\data.csv')
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/username/repo/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/username/repo/discussions)
 
 ## 🙏 Acknowledgments
 
